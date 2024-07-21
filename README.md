@@ -54,3 +54,9 @@ bun start
 > Create a `.env` file in the root directory of the project.
 
 - `PORT`: HTTP server port (default: 3000)
+
+#### PM2
+
+```bash
+pm2 start --interpreter ~/.bun/bin/bun index.ts --name speller
+```
