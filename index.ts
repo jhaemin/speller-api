@@ -18,6 +18,10 @@ const limiter = rateLimit({
 
 app.use(limiter)
 
+app.get('/', (req, res) => {
+  res.send('Speller API')
+})
+
 app.post('/', async (req, res) => {
   const body = req.body
 
