@@ -16,13 +16,11 @@ const limiter = rateLimit({
   message: 'Too many requests, please try again after a minute',
 })
 
-app.use(limiter)
-
 app.get('/', (req, res) => {
   res.send('Speller API')
 })
 
-app.post('/', async (req, res) => {
+app.post('/', limiter, async (req, res) => {
   const body = req.body
 
   try {
