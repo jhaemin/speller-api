@@ -12,7 +12,7 @@ POST https://speller.town
 
 ```json
 {
-  "text": "한국어 맞춤법 틀리면 어떻게 되나요?"
+  "text": "한국어 맞춤법 틀리면 어떡해 되나요?"
 }
 ```
 
