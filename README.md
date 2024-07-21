@@ -2,6 +2,8 @@
 
 부산대학교 인공지능연구실과 (주)나라인포테크에서 함께 만든 [한국어 맞춤법/문법 검사기](http://speller.cs.pusan.ac.kr/)를 활용한 API 서버입니다.
 
+https://speller.town
+
 ## Usage
 
 ```http
