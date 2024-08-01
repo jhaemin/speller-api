@@ -17,7 +17,27 @@ const limiter = rateLimit({
 })
 
 app.get('/', (req, res) => {
-  res.send('Speller API')
+  res.send(
+    `
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speller API</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+Speller API<br />
+<a href="https://github.com/jhaemin/speller-api">https://github.com/jhaemin/speller-api</a>
+</body>
+</html>
+`
+  )
 })
 
 app.post('/', limiter, async (req, res) => {
