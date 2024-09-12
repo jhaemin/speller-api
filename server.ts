@@ -2,8 +2,10 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import express from 'express'
 import rateLimit from 'express-rate-limit'
-import { assert } from 'superstruct'
-import { RequestBodyStruct } from './struct'
+import { assert, type Infer } from 'superstruct'
+import { RequestBodyStruct, ResponseStruct } from './struct'
+
+const spellerUrl = 'https://nara-speller.co.kr/speller/results'
 
 const app = express()
 
@@ -52,7 +54,7 @@ app.post('/', limiter, async (req, res) => {
   const text = body.text.split('\n').join('\r\n')
 
   try {
-    const spellerRes = await fetch('http://164.125.7.61/speller/results', {
+    const spellerRes = await fetch(spellerUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -85,7 +87,7 @@ app.post('/', limiter, async (req, res) => {
 
     return res.status(200).json({
       suggestions: errInfo,
-    })
+    } satisfies Infer<typeof ResponseStruct>)
   } catch (e) {
     console.error(e)
     return res.status(500).send('Internal Server Error')
