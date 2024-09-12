@@ -92,6 +92,12 @@ app.post('/', limiter, async (req, res) => {
   }
 })
 
-app.listen(Bun.env.PORT, () => {
-  console.log(`Server is running on port ${Bun.env.PORT}`)
+if (Bun.env.PORT === undefined) {
+  console.warn('PORT is not defined in .env file. Using default port 3000')
+}
+
+const port = Bun.env.PORT ?? 3000
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`)
 })
