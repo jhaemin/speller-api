@@ -47,7 +47,7 @@ bun install
 #### Run the server
 
 ```bash
-bun dev   # Restart the server automatically when the source code changes
+bun dev   # It restarts the server automatically when the source code changes
 bun start
 ```
 
